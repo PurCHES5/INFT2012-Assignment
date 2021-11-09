@@ -69,6 +69,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="EndGameResultForm.resx">
+      <DependentUpon>EndGameResultForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainGameForm.resx">
+      <DependentUpon>MainGameForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MenuForm.resx">
       <DependentUpon>MenuForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -80,6 +86,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -94,6 +101,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dice1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dice2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dice3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dice4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dice5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dice6.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

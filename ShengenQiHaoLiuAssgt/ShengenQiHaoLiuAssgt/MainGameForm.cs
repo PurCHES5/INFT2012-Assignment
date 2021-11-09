@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Transitions;
 
 namespace ShengenQiHaoLiuAssgt
 {
@@ -15,6 +16,19 @@ namespace ShengenQiHaoLiuAssgt
         public MainGameForm()
         {
             InitializeComponent();
+        }
+
+        private void roll1_Click(object sender, EventArgs e)
+        {
+            Transition t = new Transition(new TransitionType_EaseInEaseOut(500));
+            t.add(dice1, "Left", 610);
+            t.add(dice2, "Left", 680);
+            t.run();
+        }
+
+        private void roll2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

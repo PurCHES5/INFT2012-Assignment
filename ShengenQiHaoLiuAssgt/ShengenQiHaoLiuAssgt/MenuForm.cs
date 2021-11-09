@@ -26,7 +26,17 @@ namespace ShengenQiHaoLiuAssgt
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.Hide();
+            MainGameForm mainGameForm = new MainGameForm();
+            mainGameForm.Closed += (s, args) => this.Close();
+            mainGameForm.Show();
+        }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //this.Hide();
+            //MainGameForm mainGameForm = new MainGameForm();
+            //mainGameForm.Show();
         }
     }
 }

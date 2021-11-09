@@ -1,0 +1,15 @@
+C:\Users\cesta\Desktop\ShengenQiHaoLiuAssgt\ShengenQiHaoLiuAssgt\ShengenQiHaoLiuAssgt\bin\Debug\ShengenQiHaoLiuAssgt.exe.config
+C:\Users\cesta\Desktop\ShengenQiHaoLiuAssgt\ShengenQiHaoLiuAssgt\ShengenQiHaoLiuAssgt\bin\Debug\ShengenQiHaoLiuAssgt.exe
+C:\Users\cesta\Desktop\ShengenQiHaoLiuAssgt\ShengenQiHaoLiuAssgt\ShengenQiHaoLiuAssgt\bin\Debug\ShengenQiHaoLiuAssgt.pdb
+C:\Users\cesta\Desktop\ShengenQiHaoLiuAssgt\ShengenQiHaoLiuAssgt\ShengenQiHaoLiuAssgt\bin\Debug\Transitions.dll
+C:\Users\cesta\Desktop\ShengenQiHaoLiuAssgt\ShengenQiHaoLiuAssgt\ShengenQiHaoLiuAssgt\bin\Debug\Transitions.pdb
+C:\Users\cesta\Desktop\ShengenQiHaoLiuAssgt\ShengenQiHaoLiuAssgt\ShengenQiHaoLiuAssgt\obj\Debug\ShengenQiHaoLiuAssgt.csproj.AssemblyReference.cache
+C:\Users\cesta\Desktop\ShengenQiHaoLiuAssgt\ShengenQiHaoLiuAssgt\ShengenQiHaoLiuAssgt\obj\Debug\ShengenQiHaoLiuAssgt.MenuForm.resources
+C:\Users\cesta\Desktop\ShengenQiHaoLiuAssgt\ShengenQiHaoLiuAssgt\ShengenQiHaoLiuAssgt\obj\Debug\ShengenQiHaoLiuAssgt.Properties.Resources.resources
+C:\Users\cesta\Desktop\ShengenQiHaoLiuAssgt\ShengenQiHaoLiuAssgt\ShengenQiHaoLiuAssgt\obj\Debug\ShengenQiHaoLiuAssgt.csproj.GenerateResource.cache
+C:\Users\cesta\Desktop\ShengenQiHaoLiuAssgt\ShengenQiHaoLiuAssgt\ShengenQiHaoLiuAssgt\obj\Debug\ShengenQiHaoLiuAssgt.csproj.CoreCompileInputs.cache
+C:\Users\cesta\Desktop\ShengenQiHaoLiuAssgt\ShengenQiHaoLiuAssgt\ShengenQiHaoLiuAssgt\obj\Debug\ShengenQiHaoLiuAssgt.csproj.CopyComplete
+C:\Users\cesta\Desktop\ShengenQiHaoLiuAssgt\ShengenQiHaoLiuAssgt\ShengenQiHaoLiuAssgt\obj\Debug\ShengenQiHaoLiuAssgt.exe
+C:\Users\cesta\Desktop\ShengenQiHaoLiuAssgt\ShengenQiHaoLiuAssgt\ShengenQiHaoLiuAssgt\obj\Debug\ShengenQiHaoLiuAssgt.pdb
+C:\Users\cesta\Desktop\ShengenQiHaoLiuAssgt\ShengenQiHaoLiuAssgt\ShengenQiHaoLiuAssgt\obj\Debug\ShengenQiHaoLiuAssgt.MainGameForm.resources
+C:\Users\cesta\Desktop\ShengenQiHaoLiuAssgt\ShengenQiHaoLiuAssgt\ShengenQiHaoLiuAssgt\obj\Debug\ShengenQiHaoLiuAssgt.EndGameResultForm.resources
