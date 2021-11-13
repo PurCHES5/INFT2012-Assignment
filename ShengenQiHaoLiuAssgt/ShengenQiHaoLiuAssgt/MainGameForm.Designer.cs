@@ -41,10 +41,13 @@ namespace ShengenQiHaoLiuAssgt
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.split2 = new System.Windows.Forms.Label();
-            this.dice1 = new System.Windows.Forms.PictureBox();
+            this.dicesPanel = new System.Windows.Forms.Panel();
+            this.diceText = new System.Windows.Forms.Label();
             this.dice2 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dice1)).BeginInit();
+            this.dice1 = new System.Windows.Forms.PictureBox();
+            this.dicesPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dice2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dice1)).BeginInit();
             this.SuspendLayout();
             // 
             // roll1
@@ -167,33 +170,56 @@ namespace ShengenQiHaoLiuAssgt
             this.split2.Size = new System.Drawing.Size(2, 115);
             this.split2.TabIndex = 11;
             // 
-            // dice1
+            // dicesPanel
             // 
-            this.dice1.Image = global::ShengenQiHaoLiuAssgt.Properties.Resources.Dice1;
-            this.dice1.Location = new System.Drawing.Point(310, 236);
-            this.dice1.Name = "dice1";
-            this.dice1.Size = new System.Drawing.Size(60, 60);
-            this.dice1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.dice1.TabIndex = 12;
-            this.dice1.TabStop = false;
+            this.dicesPanel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.dicesPanel.Controls.Add(this.diceText);
+            this.dicesPanel.Controls.Add(this.dice2);
+            this.dicesPanel.Controls.Add(this.dice1);
+            this.dicesPanel.Location = new System.Drawing.Point(300, 200);
+            this.dicesPanel.Name = "dicesPanel";
+            this.dicesPanel.Size = new System.Drawing.Size(200, 114);
+            this.dicesPanel.TabIndex = 14;
+            // 
+            // diceText
+            // 
+            this.diceText.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.diceText.AutoSize = true;
+            this.diceText.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.diceText.Location = new System.Drawing.Point(55, 13);
+            this.diceText.Name = "diceText";
+            this.diceText.Size = new System.Drawing.Size(83, 16);
+            this.diceText.TabIndex = 15;
+            this.diceText.Text = "Throwing...";
             // 
             // dice2
             // 
+            this.dice2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.dice2.Image = global::ShengenQiHaoLiuAssgt.Properties.Resources.Dice1;
-            this.dice2.Location = new System.Drawing.Point(380, 236);
+            this.dice2.Location = new System.Drawing.Point(105, 50);
             this.dice2.Name = "dice2";
             this.dice2.Size = new System.Drawing.Size(60, 60);
             this.dice2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.dice2.TabIndex = 13;
+            this.dice2.TabIndex = 14;
             this.dice2.TabStop = false;
+            // 
+            // dice1
+            // 
+            this.dice1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.dice1.Image = global::ShengenQiHaoLiuAssgt.Properties.Resources.Dice1;
+            this.dice1.Location = new System.Drawing.Point(35, 50);
+            this.dice1.Name = "dice1";
+            this.dice1.Size = new System.Drawing.Size(60, 60);
+            this.dice1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.dice1.TabIndex = 13;
+            this.dice1.TabStop = false;
             // 
             // MainGameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1040, 642);
-            this.Controls.Add(this.dice2);
-            this.Controls.Add(this.dice1);
+            this.Controls.Add(this.dicesPanel);
             this.Controls.Add(this.split2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -209,8 +235,10 @@ namespace ShengenQiHaoLiuAssgt
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MainGameForm";
             this.Text = "Groan";
-            ((System.ComponentModel.ISupportInitialize)(this.dice1)).EndInit();
+            this.dicesPanel.ResumeLayout(false);
+            this.dicesPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dice2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dice1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -230,7 +258,9 @@ namespace ShengenQiHaoLiuAssgt
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label split2;
-        private System.Windows.Forms.PictureBox dice1;
+        private System.Windows.Forms.Panel dicesPanel;
+        private System.Windows.Forms.Label diceText;
         private System.Windows.Forms.PictureBox dice2;
+        private System.Windows.Forms.PictureBox dice1;
     }
 }

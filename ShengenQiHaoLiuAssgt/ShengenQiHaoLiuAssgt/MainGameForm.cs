@@ -18,17 +18,28 @@ namespace ShengenQiHaoLiuAssgt
             InitializeComponent();
         }
 
-        private void roll1_Click(object sender, EventArgs e)
+        private async void roll1_Click(object sender, EventArgs e)
         {
             Transition t = new Transition(new TransitionType_EaseInEaseOut(500));
-            t.add(dice1, "Left", 610);
-            t.add(dice2, "Left", 680);
+            t.add(dicesPanel, "Left", 550);
             t.run();
+            roll1.Enabled = false;
+            roll2.Enabled = false;
+            await Task.Delay(600);
+            roll1.Enabled = true;
+            roll2.Enabled = true;
         }
 
-        private void roll2_Click(object sender, EventArgs e)
+        private async void roll2_Click(object sender, EventArgs e)
         {
-
+            Transition t = new Transition(new TransitionType_EaseInEaseOut(500));
+            t.add(dicesPanel, "Left", 300);
+            t.run();
+            roll1.Enabled = false;
+            roll2.Enabled = false;
+            await Task.Delay(600);
+            roll1.Enabled = true;
+            roll2.Enabled = true;
         }
     }
 }
