@@ -49,6 +49,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InGameText.cs" />
     <Compile Include="EndGameResultForm.cs">
       <SubType>Form</SubType>
     </Compile>
