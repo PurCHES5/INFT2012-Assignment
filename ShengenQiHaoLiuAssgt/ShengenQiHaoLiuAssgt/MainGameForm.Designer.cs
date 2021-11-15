@@ -168,9 +168,9 @@ namespace ShengenQiHaoLiuAssgt
             // diceText
             // 
             this.diceText.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.diceText.Location = new System.Drawing.Point(14, 16);
+            this.diceText.Location = new System.Drawing.Point(3, 16);
             this.diceText.Name = "diceText";
-            this.diceText.Size = new System.Drawing.Size(170, 20);
+            this.diceText.Size = new System.Drawing.Size(194, 20);
             this.diceText.TabIndex = 17;
             this.diceText.Text = "Waiting for action..";
             this.diceText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -232,11 +232,10 @@ namespace ShengenQiHaoLiuAssgt
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox1.Image = global::ShengenQiHaoLiuAssgt.Properties.Resources.diceIcon;
             this.pictureBox1.Location = new System.Drawing.Point(452, 29);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(130, 129);
+            this.pictureBox1.Size = new System.Drawing.Size(130, 130);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 18;
             this.pictureBox1.TabStop = false;

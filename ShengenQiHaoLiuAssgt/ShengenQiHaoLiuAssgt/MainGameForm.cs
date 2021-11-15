@@ -73,8 +73,29 @@ namespace ShengenQiHaoLiuAssgt
 
             dice1.Image = diceImages[dice1FinalResult];
             dice2.Image = diceImages[dice2FinalResult];
+
+            int diceResultsAggr = dice1FinalResult + dice2FinalResult + 2;
+            string diceResultAggrText;
+            if (diceResultsAggr == 2)
+            {
+                diceResultAggrText = "Snake's eyes!!!";
+                Transition t = new Transition(new TransitionType_Flash(5, 100));
+                t.add(pictureBox1, "Left", 420);
+                t.run();
+            }
+            else if (dice1FinalResult == 0 || dice2FinalResult == 0)
+            {
+                diceResultAggrText = "Groan!";
+                Transition t = new Transition(new TransitionType_Flash(3, 150));
+                t.add(pictureBox1, "Left", 430);
+                t.run();
+            }
+            else
+            {
+                diceResultAggrText = diceResultsAggr.ToString();
+            }
             diceText.Text = 
-                $"{dice1FinalResult + 1} + {dice2FinalResult + 1} = {dice1FinalResult + dice2FinalResult + 2}";
+                $"{dice1FinalResult + 1} + {dice2FinalResult + 1} = {diceResultAggrText}";
 
             roll1.Enabled = true;
             roll2.Enabled = true;
@@ -179,6 +200,8 @@ namespace ShengenQiHaoLiuAssgt
             if ((player == 1 ? player1CumulativeScore : player2CumulativeScore) + runningScoreAggr >= MenuForm.goalScore)
             {
                 MessageBox.Show("GGEZ!" + (player == 1 ? MenuForm.player1Name : MenuForm.player2Name));
+                this.Controls.Clear();
+                this.InitializeComponent();
             }
         }
 
