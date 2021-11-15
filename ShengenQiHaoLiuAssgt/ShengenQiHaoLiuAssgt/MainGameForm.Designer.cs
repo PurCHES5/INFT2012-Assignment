@@ -38,25 +38,21 @@ namespace ShengenQiHaoLiuAssgt
             this.commentText = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.split2 = new System.Windows.Forms.Label();
             this.dicesPanel = new System.Windows.Forms.Panel();
             this.diceText = new System.Windows.Forms.Label();
             this.dice2 = new System.Windows.Forms.PictureBox();
             this.dice1 = new System.Windows.Forms.PictureBox();
             this.passDice1 = new System.Windows.Forms.Button();
             this.passDice2 = new System.Windows.Forms.Button();
-            this.player1RunningScoreList = new System.Windows.Forms.Label();
+            this.runningScoreList = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.player2RunningScoreList = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.player1RunningScoreAggrLabel = new System.Windows.Forms.Label();
-            this.player2RunningScoreAggrLabel = new System.Windows.Forms.Label();
+            this.runningScoreAggrLabel = new System.Windows.Forms.Label();
             this.player1CumulativeScoreLabel = new System.Windows.Forms.Label();
             this.player2CumulativeScoreLabel = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.dicesPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dice2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dice1)).BeginInit();
@@ -65,7 +61,7 @@ namespace ShengenQiHaoLiuAssgt
             // 
             // roll1
             // 
-            this.roll1.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roll1.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.roll1.Location = new System.Drawing.Point(100, 230);
             this.roll1.Name = "roll1";
             this.roll1.Size = new System.Drawing.Size(170, 53);
@@ -77,7 +73,7 @@ namespace ShengenQiHaoLiuAssgt
             // roll2
             // 
             this.roll2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.roll2.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roll2.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.roll2.Location = new System.Drawing.Point(754, 230);
             this.roll2.Name = "roll2";
             this.roll2.Size = new System.Drawing.Size(170, 53);
@@ -99,7 +95,7 @@ namespace ShengenQiHaoLiuAssgt
             // player2Text
             // 
             this.player2Text.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player2Text.Location = new System.Drawing.Point(724, 75);
+            this.player2Text.Location = new System.Drawing.Point(733, 75);
             this.player2Text.Name = "player2Text";
             this.player2Text.Size = new System.Drawing.Size(210, 23);
             this.player2Text.TabIndex = 4;
@@ -140,41 +136,21 @@ namespace ShengenQiHaoLiuAssgt
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(110, 360);
+            this.label2.Location = new System.Drawing.Point(448, 360);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(150, 23);
             this.label2.TabIndex = 8;
             this.label2.Text = "Running Score";
             // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(764, 360);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(150, 23);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Running Score";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(433, 360);
+            this.label4.Location = new System.Drawing.Point(96, 360);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(178, 23);
             this.label4.TabIndex = 10;
             this.label4.Text = "Cumulative Score";
-            // 
-            // split2
-            // 
-            this.split2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.split2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.split2.Location = new System.Drawing.Point(510, 400);
-            this.split2.Name = "split2";
-            this.split2.Size = new System.Drawing.Size(2, 200);
-            this.split2.TabIndex = 11;
             // 
             // dicesPanel
             // 
@@ -222,7 +198,7 @@ namespace ShengenQiHaoLiuAssgt
             // passDice1
             // 
             this.passDice1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passDice1.Location = new System.Drawing.Point(133, 304);
+            this.passDice1.Location = new System.Drawing.Point(137, 304);
             this.passDice1.Name = "passDice1";
             this.passDice1.Size = new System.Drawing.Size(100, 30);
             this.passDice1.TabIndex = 15;
@@ -241,14 +217,14 @@ namespace ShengenQiHaoLiuAssgt
             this.passDice2.UseVisualStyleBackColor = true;
             this.passDice2.Click += new System.EventHandler(this.passDice2_Click);
             // 
-            // player1RunningScoreList
+            // runningScoreList
             // 
-            this.player1RunningScoreList.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player1RunningScoreList.Location = new System.Drawing.Point(129, 459);
-            this.player1RunningScoreList.Name = "player1RunningScoreList";
-            this.player1RunningScoreList.Size = new System.Drawing.Size(100, 100);
-            this.player1RunningScoreList.TabIndex = 17;
-            this.player1RunningScoreList.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.runningScoreList.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.runningScoreList.Location = new System.Drawing.Point(468, 472);
+            this.runningScoreList.Name = "runningScoreList";
+            this.runningScoreList.Size = new System.Drawing.Size(100, 128);
+            this.runningScoreList.TabIndex = 17;
+            this.runningScoreList.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // pictureBox1
             // 
@@ -261,15 +237,6 @@ namespace ShengenQiHaoLiuAssgt
             this.pictureBox1.TabIndex = 18;
             this.pictureBox1.TabStop = false;
             // 
-            // player2RunningScoreList
-            // 
-            this.player2RunningScoreList.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player2RunningScoreList.Location = new System.Drawing.Point(788, 459);
-            this.player2RunningScoreList.Name = "player2RunningScoreList";
-            this.player2RunningScoreList.Size = new System.Drawing.Size(100, 100);
-            this.player2RunningScoreList.TabIndex = 19;
-            this.player2RunningScoreList.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // label5
             // 
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -281,47 +248,27 @@ namespace ShengenQiHaoLiuAssgt
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(12, 451);
+            this.label6.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(475, 450);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(61, 13);
+            this.label6.Size = new System.Drawing.Size(91, 13);
             this.label6.TabIndex = 21;
-            this.label6.Text = "latest throw";
+            this.label6.Text = "latest 4 throws";
             // 
-            // label7
+            // runningScoreAggrLabel
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(935, 450);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(61, 13);
-            this.label7.TabIndex = 22;
-            this.label7.Text = "latest throw";
-            // 
-            // player1RunningScoreAggrLabel
-            // 
-            this.player1RunningScoreAggrLabel.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player1RunningScoreAggrLabel.Location = new System.Drawing.Point(129, 406);
-            this.player1RunningScoreAggrLabel.Name = "player1RunningScoreAggrLabel";
-            this.player1RunningScoreAggrLabel.Size = new System.Drawing.Size(100, 38);
-            this.player1RunningScoreAggrLabel.TabIndex = 23;
-            this.player1RunningScoreAggrLabel.Text = "0";
-            this.player1RunningScoreAggrLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // player2RunningScoreAggrLabel
-            // 
-            this.player2RunningScoreAggrLabel.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player2RunningScoreAggrLabel.Location = new System.Drawing.Point(788, 406);
-            this.player2RunningScoreAggrLabel.Name = "player2RunningScoreAggrLabel";
-            this.player2RunningScoreAggrLabel.Size = new System.Drawing.Size(100, 38);
-            this.player2RunningScoreAggrLabel.TabIndex = 24;
-            this.player2RunningScoreAggrLabel.Text = "0";
-            this.player2RunningScoreAggrLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.runningScoreAggrLabel.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.runningScoreAggrLabel.Location = new System.Drawing.Point(466, 406);
+            this.runningScoreAggrLabel.Name = "runningScoreAggrLabel";
+            this.runningScoreAggrLabel.Size = new System.Drawing.Size(100, 38);
+            this.runningScoreAggrLabel.TabIndex = 23;
+            this.runningScoreAggrLabel.Text = "0";
+            this.runningScoreAggrLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // player1CumulativeScoreLabel
             // 
             this.player1CumulativeScoreLabel.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player1CumulativeScoreLabel.Location = new System.Drawing.Point(404, 406);
+            this.player1CumulativeScoreLabel.Location = new System.Drawing.Point(117, 406);
             this.player1CumulativeScoreLabel.Name = "player1CumulativeScoreLabel";
             this.player1CumulativeScoreLabel.Size = new System.Drawing.Size(100, 38);
             this.player1CumulativeScoreLabel.TabIndex = 25;
@@ -331,34 +278,40 @@ namespace ShengenQiHaoLiuAssgt
             // player2CumulativeScoreLabel
             // 
             this.player2CumulativeScoreLabel.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player2CumulativeScoreLabel.Location = new System.Drawing.Point(518, 406);
+            this.player2CumulativeScoreLabel.Location = new System.Drawing.Point(792, 406);
             this.player2CumulativeScoreLabel.Name = "player2CumulativeScoreLabel";
             this.player2CumulativeScoreLabel.Size = new System.Drawing.Size(100, 38);
             this.player2CumulativeScoreLabel.TabIndex = 26;
             this.player2CumulativeScoreLabel.Text = "0";
             this.player2CumulativeScoreLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(756, 360);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(178, 23);
+            this.label3.TabIndex = 27;
+            this.label3.Text = "Cumulative Score";
+            // 
             // MainGameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.player2CumulativeScoreLabel);
             this.Controls.Add(this.player1CumulativeScoreLabel);
-            this.Controls.Add(this.player2RunningScoreAggrLabel);
-            this.Controls.Add(this.player1RunningScoreAggrLabel);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.runningScoreAggrLabel);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.player2RunningScoreList);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.player1RunningScoreList);
+            this.Controls.Add(this.runningScoreList);
             this.Controls.Add(this.passDice2);
             this.Controls.Add(this.passDice1);
             this.Controls.Add(this.dicesPanel);
-            this.Controls.Add(this.split2);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.commentText);
@@ -390,24 +343,20 @@ namespace ShengenQiHaoLiuAssgt
         private System.Windows.Forms.Label commentText;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label split2;
         private System.Windows.Forms.Panel dicesPanel;
         private System.Windows.Forms.PictureBox dice2;
         private System.Windows.Forms.PictureBox dice1;
         private System.Windows.Forms.Label diceText;
         private System.Windows.Forms.Button passDice1;
         private System.Windows.Forms.Button passDice2;
-        private System.Windows.Forms.Label player1RunningScoreList;
+        private System.Windows.Forms.Label runningScoreList;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label player2RunningScoreList;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label player1RunningScoreAggrLabel;
-        private System.Windows.Forms.Label player2RunningScoreAggrLabel;
+        private System.Windows.Forms.Label runningScoreAggrLabel;
         private System.Windows.Forms.Label player1CumulativeScoreLabel;
         private System.Windows.Forms.Label player2CumulativeScoreLabel;
+        private System.Windows.Forms.Label label3;
     }
 }
