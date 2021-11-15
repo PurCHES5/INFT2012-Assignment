@@ -16,6 +16,7 @@ namespace ShengenQiHaoLiuAssgt
     {
         public static string player1Name;
         public static string player2Name;
+        public static int goalScore;
 
         public MenuForm()
         {
@@ -32,6 +33,7 @@ namespace ShengenQiHaoLiuAssgt
             this.Hide();
             player1Name = player1NameTextBox.Text;
             player2Name = player2NameTextBox.Text;
+            goalScore = Convert.ToInt32(goalScoreTextBox.Text);
             MainGameForm mainGameForm = new MainGameForm();
             mainGameForm.Closed += (s, args) => this.Close();
             mainGameForm.Show();

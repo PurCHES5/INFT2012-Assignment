@@ -66,6 +66,7 @@ namespace ShengenQiHaoLiuAssgt
             this.roll1.Name = "roll1";
             this.roll1.Size = new System.Drawing.Size(170, 53);
             this.roll1.TabIndex = 0;
+            this.roll1.TabStop = false;
             this.roll1.Text = "Roll!";
             this.roll1.UseVisualStyleBackColor = true;
             this.roll1.Click += new System.EventHandler(this.roll1_Click);
@@ -78,6 +79,7 @@ namespace ShengenQiHaoLiuAssgt
             this.roll2.Name = "roll2";
             this.roll2.Size = new System.Drawing.Size(170, 53);
             this.roll2.TabIndex = 1;
+            this.roll2.TabStop = false;
             this.roll2.Text = "Roll!";
             this.roll2.UseVisualStyleBackColor = true;
             this.roll2.Click += new System.EventHandler(this.roll2_Click);
@@ -201,7 +203,8 @@ namespace ShengenQiHaoLiuAssgt
             this.passDice1.Location = new System.Drawing.Point(137, 304);
             this.passDice1.Name = "passDice1";
             this.passDice1.Size = new System.Drawing.Size(100, 30);
-            this.passDice1.TabIndex = 15;
+            this.passDice1.TabIndex = 2;
+            this.passDice1.TabStop = false;
             this.passDice1.Text = "Pass";
             this.passDice1.UseVisualStyleBackColor = true;
             this.passDice1.Click += new System.EventHandler(this.passDice1_Click);
@@ -212,7 +215,8 @@ namespace ShengenQiHaoLiuAssgt
             this.passDice2.Location = new System.Drawing.Point(792, 304);
             this.passDice2.Name = "passDice2";
             this.passDice2.Size = new System.Drawing.Size(100, 30);
-            this.passDice2.TabIndex = 16;
+            this.passDice2.TabIndex = 3;
+            this.passDice2.TabStop = false;
             this.passDice2.Text = "Pass";
             this.passDice2.UseVisualStyleBackColor = true;
             this.passDice2.Click += new System.EventHandler(this.passDice2_Click);
@@ -220,9 +224,9 @@ namespace ShengenQiHaoLiuAssgt
             // runningScoreList
             // 
             this.runningScoreList.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.runningScoreList.Location = new System.Drawing.Point(468, 472);
+            this.runningScoreList.Location = new System.Drawing.Point(363, 473);
             this.runningScoreList.Name = "runningScoreList";
-            this.runningScoreList.Size = new System.Drawing.Size(100, 128);
+            this.runningScoreList.Size = new System.Drawing.Size(302, 128);
             this.runningScoreList.TabIndex = 17;
             this.runningScoreList.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 

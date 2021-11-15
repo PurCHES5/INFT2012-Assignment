@@ -25,6 +25,7 @@ namespace ShengenQiHaoLiuAssgt
             InitializeComponent();
             player1Text.Text = MenuForm.player1Name;
             player2Text.Text = MenuForm.player2Name;
+            goalScore.Text = "Goal Score: " + MenuForm.goalScore;
             diceImages[0] = Properties.Resources.Dice1;
             diceImages[1] = Properties.Resources.Dice2;
             diceImages[2] = Properties.Resources.Dice3;
@@ -83,42 +84,130 @@ namespace ShengenQiHaoLiuAssgt
             return finalResults;
         }
 
+        /// <summary>
+        /// Add the dice results to the accumulated running score and running score history.
+        /// </summary>
+        /// <param name="diceResults">dice result array (2 dices, each value ranges 0-5)</param>
         private void AddRunningScore(int[] diceResults)
         {
             int diceResultsAggr = diceResults[0] + diceResults[1] + 2;
+            string diceResultAggrText;
+            if (diceResultsAggr == 2)
+            {
+                diceResultAggrText = "Snake's eyes!!!";
+            }
+            else if (diceResults[0] == 0 || diceResults[1] == 0)
+            {
+                diceResultAggrText = "Groan!";
+            }
+            else
+            {
+                diceResultAggrText = diceResultsAggr.ToString();
+            }
             runningScoreList.Text = 
-                runningScoreList.Text.Insert(0, $"{diceResults[0] + 1} + {diceResults[1] + 1} = {diceResultsAggr}\r\n\r\n");
+                runningScoreList.Text.Insert(0, $"{diceResults[0] + 1} + {diceResults[1] + 1} = {diceResultAggrText}\r\n\r\n");
 
             runningScoreAggr += diceResultsAggr;
             runningScoreAggrLabel.Text = runningScoreAggr.ToString();
         }
 
-        private bool GroanOrSnake(int[] diceResults)
+        /// <summary>
+        /// Test whether the dice results resulted in a Groan or Snake eye.
+        /// </summary>
+        /// <param name="diceResults">dice result array (2 dices, each value ranges 0-5)</param>
+        /// <returns>Returns true if Groan or Snake eye, otherwise false.</returns>
+        private async Task<bool> GroanOrSnake(int[] diceResults, int player)
         {
             if (diceResults[0] == 0 && diceResults[1] == 0)
             {
+                roll1.Enabled = false;
+                roll2.Enabled = false;
+                passDice1.Enabled = false;
+                passDice2.Enabled = false;
+
+                runningScoreAggr = 0;
+                runningScoreAggrLabel.Text = "0";
+                if (player == 1)
+                {
+                    player1CumulativeScore = 0;
+                    player1CumulativeScoreLabel.Text = "0";
+                }
+                else
+                {
+                    player2CumulativeScore = 0;
+                    player2CumulativeScoreLabel.Text = "0";
+                }
+
+                await Task.Delay(2000);
+                if (player == 1)
+                {
+                    passDice1_Click(null, null);
+                }
+                else
+                {
+                    passDice2_Click(null, null);
+                }
+                
                 return true;
             }
             else if (diceResults[0] == 0 || diceResults[1] == 0)
             {
+                roll1.Enabled = false;
+                roll2.Enabled = false;
+                passDice1.Enabled = false;
+                passDice2.Enabled = false;
+
+                runningScoreAggr = 0;
+                runningScoreAggrLabel.Text = "0";
+                await Task.Delay(2000);
+                if (player == 1)
+                {
+                    passDice1_Click(null, null);
+                }
+                else
+                {
+                    passDice2_Click(null, null);
+                }
                 return true;
             }
 
             return false;
         }
 
+        private void isWin(int player)
+        {
+            if ((player == 1 ? player1CumulativeScore : player2CumulativeScore) + runningScoreAggr >= MenuForm.goalScore)
+            {
+                MessageBox.Show("GGEZ!" + (player == 1 ? MenuForm.player1Name : MenuForm.player2Name));
+            }
+        }
+
+        /// <summary>
+        /// Should be called after every OnButton Click event. Prevent auto selecting a button.
+        /// </summary>
+        private void RemoveAutoSelect()
+        {
+            pictureBox1.Focus();
+        }
+
 
         private async void roll1_Click(object sender, EventArgs e)
         {
             int[] diceResults = await RollDice();
-            GroanOrSnake(diceResults);
+            
             AddRunningScore(diceResults);
+            RemoveAutoSelect();
+            await GroanOrSnake(diceResults, 1);
+            isWin(1);
         }
 
         private async void roll2_Click(object sender, EventArgs e)
         {
             int[] diceResults = await RollDice();
             AddRunningScore(diceResults);
+            RemoveAutoSelect();
+            await GroanOrSnake(diceResults, 2);
+            isWin(2);
         }
 
         private void passDice1_Click(object sender, EventArgs e)
@@ -135,6 +224,7 @@ namespace ShengenQiHaoLiuAssgt
             player1CumulativeScoreLabel.Text = player1CumulativeScore.ToString();
 
             RollMove();
+            RemoveAutoSelect();
         }
 
         private void passDice2_Click(object sender, EventArgs e)
@@ -151,6 +241,7 @@ namespace ShengenQiHaoLiuAssgt
             player2CumulativeScoreLabel.Text = player2CumulativeScore.ToString();
 
             RollMove();
+            RemoveAutoSelect();
         }
     }
 }

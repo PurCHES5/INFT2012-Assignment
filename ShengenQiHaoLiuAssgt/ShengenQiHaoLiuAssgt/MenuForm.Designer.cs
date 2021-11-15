@@ -35,6 +35,8 @@ namespace ShengenQiHaoLiuAssgt
             this.panel1 = new System.Windows.Forms.Panel();
             this.player2NameTextBox = new System.Windows.Forms.TextBox();
             this.player1NameTextBox = new System.Windows.Forms.TextBox();
+            this.goalScoreTextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,6 +47,7 @@ namespace ShengenQiHaoLiuAssgt
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(233, 130);
             this.button1.TabIndex = 0;
+            this.button1.TabStop = false;
             this.button1.Text = "1 vs 1";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -56,6 +59,7 @@ namespace ShengenQiHaoLiuAssgt
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(233, 130);
             this.button2.TabIndex = 1;
+            this.button2.TabStop = false;
             this.button2.Text = "Singleplayer";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -65,6 +69,8 @@ namespace ShengenQiHaoLiuAssgt
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.goalScoreTextBox);
             this.panel1.Controls.Add(this.player2NameTextBox);
             this.panel1.Controls.Add(this.player1NameTextBox);
             this.panel1.Controls.Add(this.button2);
@@ -94,6 +100,26 @@ namespace ShengenQiHaoLiuAssgt
             this.player1NameTextBox.TabIndex = 2;
             this.player1NameTextBox.Text = "Player1";
             // 
+            // goalScoreTextBox
+            // 
+            this.goalScoreTextBox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.goalScoreTextBox.Location = new System.Drawing.Point(389, 163);
+            this.goalScoreTextBox.MaxLength = 3;
+            this.goalScoreTextBox.Name = "goalScoreTextBox";
+            this.goalScoreTextBox.Size = new System.Drawing.Size(50, 27);
+            this.goalScoreTextBox.TabIndex = 4;
+            this.goalScoreTextBox.Text = "50";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(275, 166);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(108, 18);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Goal Score:";
+            // 
             // MenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -118,6 +144,8 @@ namespace ShengenQiHaoLiuAssgt
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox player2NameTextBox;
         private System.Windows.Forms.TextBox player1NameTextBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox goalScoreTextBox;
     }
 }
 
