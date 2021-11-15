@@ -29,11 +29,12 @@ namespace ShengenQiHaoLiuAssgt
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuForm));
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.player1NameTextBox = new System.Windows.Forms.TextBox();
             this.player2NameTextBox = new System.Windows.Forms.TextBox();
+            this.player1NameTextBox = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,16 +74,6 @@ namespace ShengenQiHaoLiuAssgt
             this.panel1.Size = new System.Drawing.Size(713, 397);
             this.panel1.TabIndex = 0;
             // 
-            // player1NameTextBox
-            // 
-            this.player1NameTextBox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player1NameTextBox.Location = new System.Drawing.Point(84, 90);
-            this.player1NameTextBox.MaxLength = 12;
-            this.player1NameTextBox.Name = "player1NameTextBox";
-            this.player1NameTextBox.Size = new System.Drawing.Size(150, 27);
-            this.player1NameTextBox.TabIndex = 2;
-            this.player1NameTextBox.Text = "Player1";
-            // 
             // player2NameTextBox
             // 
             this.player2NameTextBox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -93,6 +84,16 @@ namespace ShengenQiHaoLiuAssgt
             this.player2NameTextBox.TabIndex = 3;
             this.player2NameTextBox.Text = "Player2";
             // 
+            // player1NameTextBox
+            // 
+            this.player1NameTextBox.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.player1NameTextBox.Location = new System.Drawing.Point(84, 90);
+            this.player1NameTextBox.MaxLength = 12;
+            this.player1NameTextBox.Name = "player1NameTextBox";
+            this.player1NameTextBox.Size = new System.Drawing.Size(150, 27);
+            this.player1NameTextBox.TabIndex = 2;
+            this.player1NameTextBox.Text = "Player1";
+            // 
             // MenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -100,6 +101,7 @@ namespace ShengenQiHaoLiuAssgt
             this.ClientSize = new System.Drawing.Size(704, 398);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MenuForm";
             this.Text = "Groan Main Menu";
             this.Load += new System.EventHandler(this.Form1_Load);

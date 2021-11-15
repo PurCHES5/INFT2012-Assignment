@@ -17,6 +17,12 @@ namespace ShengenQiHaoLiuAssgt
 
         private static Image[] diceImages = new Image[6];
 
+        private int player1RunningScoreAggr = 0;
+        private int player2RunningScoreAggr = 0;
+
+        private int player1CumulativeScore = 0;
+        private int player2CumulativeScore = 0;
+
         public MainGameForm()
         {
             InitializeComponent();
@@ -33,16 +39,28 @@ namespace ShengenQiHaoLiuAssgt
 
         private async static void RollMove()
         {
+            mForm.dice1.Image = diceImages[0];
+            mForm.dice2.Image = diceImages[0];
             mForm.roll1.Enabled = false;
             mForm.roll2.Enabled = false;
+            mForm.passDice1.Enabled = false;
+            mForm.passDice2.Enabled = false;
             await Task.Delay(600);
             mForm.roll1.Enabled = true;
             mForm.roll2.Enabled = true;
+            mForm.passDice1.Enabled = true;
+            mForm.passDice2.Enabled = true;
             mForm.diceText.Text = InGameText.diceWaiting;
         }
 
         private async static Task<int[]> RollDice()
         {
+            mForm.diceText.Text = InGameText.diceRolling;
+            mForm.roll1.Enabled = false;
+            mForm.roll2.Enabled = false;
+            mForm.passDice1.Enabled = false;
+            mForm.passDice2.Enabled = false;
+
             Random random = new Random();
 
             for (int i = 0; i < 10; i++)
@@ -60,7 +78,11 @@ namespace ShengenQiHaoLiuAssgt
             mForm.dice2.Image = diceImages[dice2FinalResult];
             mForm.diceText.Text = 
                 $"{dice1FinalResult + 1} + {dice2FinalResult + 1} = {dice1FinalResult + dice2FinalResult + 2}";
-            await Task.Delay(1000);
+
+            mForm.roll1.Enabled = true;
+            mForm.roll2.Enabled = true;
+            mForm.passDice1.Enabled = true;
+            mForm.passDice2.Enabled = true;
 
             return finalResults;
         }
@@ -68,25 +90,56 @@ namespace ShengenQiHaoLiuAssgt
         private async void roll1_Click(object sender, EventArgs e)
         {
             int[] diceResults = await RollDice();
+            int diceResultsAggr = diceResults[0] + diceResults[1] + 2;
+            player1RunningScoreList.Text = player1RunningScoreList.Text.Insert(0, diceResultsAggr + "\r\n\r\n");
 
-            diceText.Text = InGameText.dicePassing;
-            Transition t = new Transition(new TransitionType_EaseInEaseOut(500));
-            t.add(dicesPanel, "Left", 550);
-            t.run();
-
-            RollMove();
+            player1RunningScoreAggr += diceResultsAggr;
+            player1RunningScoreAggrLabel.Text = player1RunningScoreAggr.ToString();
         }
 
         private async void roll2_Click(object sender, EventArgs e)
         {
             int[] diceResults = await RollDice();
+            int diceResultsAggr = diceResults[0] + diceResults[1] + 2;
+            player2RunningScoreList.Text = player2RunningScoreList.Text.Insert(0, diceResultsAggr + "\r\n\r\n");
 
+            player2RunningScoreAggr += diceResultsAggr;
+            player2RunningScoreAggrLabel.Text = player2RunningScoreAggr.ToString();
+        }
+
+        private void passDice1_Click(object sender, EventArgs e)
+        {
+            diceText.Text = InGameText.dicePassing;
+            Transition t = new Transition(new TransitionType_EaseInEaseOut(500));
+            t.add(dicesPanel, "Left", 550);
+            t.run();
+
+            player1CumulativeScore += player1RunningScoreAggr;
+            player1RunningScoreAggr = 0;
+            player1RunningScoreList.Text = "";
+            player1RunningScoreAggrLabel.Text = "0"; 
+            player1CumulativeScoreLabel.Text = player1CumulativeScore.ToString();
+
+            RollMove();
+        }
+
+        private void passDice2_Click(object sender, EventArgs e)
+        {
             diceText.Text = InGameText.dicePassing;
             Transition t = new Transition(new TransitionType_EaseInEaseOut(500));
             t.add(dicesPanel, "Left", 300);
             t.run();
 
+            player2CumulativeScore += player2RunningScoreAggr;
+            player2RunningScoreAggr = 0;
+            player2RunningScoreList.Text = "";
+            player2RunningScoreAggrLabel.Text = "0";
+            player2CumulativeScoreLabel.Text = player2CumulativeScore.ToString();
+
             RollMove();
         }
     }
 }
+
+
+//"roll the dice" by Darwin Bell is licensed with CC BY-NC 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-nc/2.0/
