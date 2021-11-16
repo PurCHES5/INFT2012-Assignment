@@ -200,7 +200,7 @@ namespace ShengenQiHaoLiuAssgt
             // passDice1
             // 
             this.passDice1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passDice1.Location = new System.Drawing.Point(137, 304);
+            this.passDice1.Location = new System.Drawing.Point(136, 304);
             this.passDice1.Name = "passDice1";
             this.passDice1.Size = new System.Drawing.Size(100, 30);
             this.passDice1.TabIndex = 2;

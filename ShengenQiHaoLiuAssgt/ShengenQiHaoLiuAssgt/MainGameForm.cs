@@ -39,6 +39,15 @@ namespace ShengenQiHaoLiuAssgt
             roll2.Enabled = false;
             passDice1.Enabled = false;
             passDice2.Enabled = false;
+
+            Random random = new Random();
+            isLeftSide = random.Next(0, 2) == 0;
+
+            if (!isLeftSide)
+            {
+                dicesPanel.Left = 550;
+            }
+
             EnableButtons();
         }
 
