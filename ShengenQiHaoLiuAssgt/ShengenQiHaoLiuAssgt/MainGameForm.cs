@@ -20,6 +20,8 @@ namespace ShengenQiHaoLiuAssgt
         private int player1CumulativeScore = 0;
         private int player2CumulativeScore = 0;
 
+        private bool isLeftSide = true;
+
         public MainGameForm()
         {
             InitializeComponent();
@@ -32,6 +34,12 @@ namespace ShengenQiHaoLiuAssgt
             diceImages[3] = Properties.Resources.Dice4;
             diceImages[4] = Properties.Resources.Dice5;
             diceImages[5] = Properties.Resources.Dice6;
+
+            roll1.Enabled = false;
+            roll2.Enabled = false;
+            passDice1.Enabled = false;
+            passDice2.Enabled = false;
+            EnableButtons();
         }
 
         private async void RollMove()
@@ -43,10 +51,8 @@ namespace ShengenQiHaoLiuAssgt
             passDice1.Enabled = false;
             passDice2.Enabled = false;
             await Task.Delay(600);
-            roll1.Enabled = true;
-            roll2.Enabled = true;
-            passDice1.Enabled = true;
-            passDice2.Enabled = true;
+            EnableButtons();
+
             diceText.Text = InGameText.diceWaiting;
         }
 
@@ -63,12 +69,12 @@ namespace ShengenQiHaoLiuAssgt
             for (int i = 0; i < 10; i++)
             {
                 await Task.Delay(100);
-                dice1.Image = diceImages[random.Next(0, 5)];
-                dice2.Image = diceImages[random.Next(0, 5)];
+                dice1.Image = diceImages[random.Next(0, 6)];
+                dice2.Image = diceImages[random.Next(0, 6)];
             }
 
-            int dice1FinalResult = random.Next(0, 5);
-            int dice2FinalResult = random.Next(0, 5);
+            int dice1FinalResult = random.Next(0, 6);
+            int dice2FinalResult = random.Next(0, 6);
             int[] finalResults = { dice1FinalResult, dice2FinalResult };
 
             dice1.Image = diceImages[dice1FinalResult];
@@ -97,10 +103,7 @@ namespace ShengenQiHaoLiuAssgt
             diceText.Text = 
                 $"{dice1FinalResult + 1} + {dice2FinalResult + 1} = {diceResultAggrText}";
 
-            roll1.Enabled = true;
-            roll2.Enabled = true;
-            passDice1.Enabled = true;
-            passDice2.Enabled = true;
+            EnableButtons();
 
             return finalResults;
         }
@@ -195,13 +198,27 @@ namespace ShengenQiHaoLiuAssgt
             return false;
         }
 
-        private void isWin(int player)
+        private void IsWin(int player)
         {
             if ((player == 1 ? player1CumulativeScore : player2CumulativeScore) + runningScoreAggr >= MenuForm.goalScore)
             {
                 MessageBox.Show("GGEZ!" + (player == 1 ? MenuForm.player1Name : MenuForm.player2Name));
-                this.Controls.Clear();
-                this.InitializeComponent();
+                Controls.Clear();
+                InitializeComponent();
+            }
+        }
+
+        private void EnableButtons()
+        {
+            if (isLeftSide)
+            {
+                roll1.Enabled = true;
+                passDice1.Enabled = true;
+            }
+            else
+            {
+                roll2.Enabled = true;
+                passDice2.Enabled = true;
             }
         }
 
@@ -221,7 +238,7 @@ namespace ShengenQiHaoLiuAssgt
             AddRunningScore(diceResults);
             RemoveAutoSelect();
             await GroanOrSnake(diceResults, 1);
-            isWin(1);
+            IsWin(1);
         }
 
         private async void roll2_Click(object sender, EventArgs e)
@@ -230,7 +247,7 @@ namespace ShengenQiHaoLiuAssgt
             AddRunningScore(diceResults);
             RemoveAutoSelect();
             await GroanOrSnake(diceResults, 2);
-            isWin(2);
+            IsWin(2);
         }
 
         private void passDice1_Click(object sender, EventArgs e)
@@ -245,6 +262,8 @@ namespace ShengenQiHaoLiuAssgt
             runningScoreList.Text = "";
             runningScoreAggrLabel.Text = "0"; 
             player1CumulativeScoreLabel.Text = player1CumulativeScore.ToString();
+
+            isLeftSide = false;
 
             RollMove();
             RemoveAutoSelect();
@@ -262,6 +281,8 @@ namespace ShengenQiHaoLiuAssgt
             runningScoreList.Text = "";
             runningScoreAggrLabel.Text = "0";
             player2CumulativeScoreLabel.Text = player2CumulativeScore.ToString();
+
+            isLeftSide = true;
 
             RollMove();
             RemoveAutoSelect();
