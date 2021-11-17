@@ -7,8 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-// External Package dot-net-transitions
-using Transitions;
 
 namespace ShengenQiHaoLiuAssgt
 {
@@ -47,3 +45,5 @@ namespace ShengenQiHaoLiuAssgt
         }
     }
 }
+
+//https://stackoverflow.com/questions/5548746/c-sharp-open-a-new-form-then-close-the-current-form

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+// External Package dot-net-transitions
 using Transitions;
 
 namespace ShengenQiHaoLiuAssgt
@@ -211,9 +212,13 @@ namespace ShengenQiHaoLiuAssgt
         {
             if ((player == 1 ? player1CumulativeScore : player2CumulativeScore) + runningScoreAggr >= MenuForm.goalScore)
             {
-                MessageBox.Show("GGEZ!" + (player == 1 ? MenuForm.player1Name : MenuForm.player2Name));
-                Controls.Clear();
-                InitializeComponent();
+                MessageBox.Show("Game Over!\r\n" + (player == 1 ? MenuForm.player1Name : MenuForm.player2Name) + " wins!");
+                //Controls.Clear();
+                //InitializeComponent();
+                this.Hide();
+                EndGameResultForm endGameResultForm = new EndGameResultForm();
+                endGameResultForm.Closed += (s, args) => this.Close();
+                endGameResultForm.Show();
             }
         }
 
