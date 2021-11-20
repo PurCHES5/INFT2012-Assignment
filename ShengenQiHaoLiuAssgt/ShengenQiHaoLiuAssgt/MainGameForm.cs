@@ -213,8 +213,8 @@ namespace ShengenQiHaoLiuAssgt
             if ((player == 1 ? player1CumulativeScore : player2CumulativeScore) + runningScoreAggr >= MenuForm.goalScore)
             {
                 MessageBox.Show("Game Over!\r\n" + (player == 1 ? MenuForm.player1Name : MenuForm.player2Name) + " wins!");
-                //Controls.Clear();
-                //InitializeComponent();
+
+                EndGameResultForm.AddWins(player);
                 this.Hide();
                 EndGameResultForm endGameResultForm = new EndGameResultForm();
                 endGameResultForm.Closed += (s, args) => this.Close();
