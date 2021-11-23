@@ -23,9 +23,13 @@ namespace ShengenQiHaoLiuAssgt
 
         private bool isLeftSide = true;
 
+        private bool isVsCPU = false;
+
         public MainGameForm()
         {
             InitializeComponent();
+
+            isVsCPU = MenuForm.isVsCPU;
             player1Text.Text = MenuForm.player1Name;
             player2Text.Text = MenuForm.player2Name;
             goalScore.Text = "Goal Score: " + MenuForm.goalScore;
@@ -50,6 +54,11 @@ namespace ShengenQiHaoLiuAssgt
             }
 
             EnableButtons();
+
+            if (isVsCPU && !isLeftSide)
+            {
+                roll2_Click(null, null);
+            }
         }
 
         private async void RollMove()
@@ -208,7 +217,7 @@ namespace ShengenQiHaoLiuAssgt
             return false;
         }
 
-        private void IsWin(int player)
+        private bool IsWin(int player)
         {
             if ((player == 1 ? player1CumulativeScore : player2CumulativeScore) + runningScoreAggr >= MenuForm.goalScore)
             {
@@ -219,7 +228,9 @@ namespace ShengenQiHaoLiuAssgt
                 EndGameResultForm endGameResultForm = new EndGameResultForm();
                 endGameResultForm.Closed += (s, args) => this.Close();
                 endGameResultForm.Show();
+                return true;
             }
+            return false;
         }
 
         private void EnableButtons()
@@ -231,9 +242,26 @@ namespace ShengenQiHaoLiuAssgt
             }
             else
             {
-                roll2.Enabled = true;
-                passDice2.Enabled = true;
+                if (!isVsCPU)
+                {
+                    roll2.Enabled = true;
+                    passDice2.Enabled = true;
+                }
+                else
+                {
+                    roll2.Enabled = false;
+                    passDice2.Enabled = false;
+                }
             }
+        }
+
+        private bool DecideNextMove()
+        {
+            if (runningScoreAggr < 15 || player1CumulativeScore - (player2CumulativeScore + runningScoreAggr) > 10)
+            {
+                return true;
+            }
+            return false;
         }
 
         /// <summary>
@@ -260,11 +288,19 @@ namespace ShengenQiHaoLiuAssgt
             int[] diceResults = await RollDice();
             AddRunningScore(diceResults);
             RemoveAutoSelect();
-            await GroanOrSnake(diceResults, 2);
-            IsWin(2);
+            bool isGroanOrSnake = await GroanOrSnake(diceResults, 2);
+            bool isWin = IsWin(2);
+
+            if (isVsCPU && !isGroanOrSnake && !isWin)
+            {
+                await Task.Delay(1000);
+                bool nextMove = DecideNextMove();
+                if (nextMove) roll2_Click(null, null);
+                else passDice2_Click(null, null);
+            }
         }
 
-        private void passDice1_Click(object sender, EventArgs e)
+        private async void passDice1_Click(object sender, EventArgs e)
         {
             diceText.Text = InGameText.dicePassing;
             Transition t = new Transition(new TransitionType_EaseInEaseOut(500));
@@ -281,6 +317,12 @@ namespace ShengenQiHaoLiuAssgt
 
             RollMove();
             RemoveAutoSelect();
+
+            if (isVsCPU)
+            {
+                await Task.Delay(1000);
+                roll2_Click(null, null);
+            }
         }
 
         private void passDice2_Click(object sender, EventArgs e)

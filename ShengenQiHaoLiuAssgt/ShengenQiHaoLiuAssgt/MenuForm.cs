@@ -15,6 +15,7 @@ namespace ShengenQiHaoLiuAssgt
         public static string player1Name;
         public static string player2Name;
         public static int goalScore;
+        public static bool isVsCPU = false;
 
         public MenuForm()
         {
@@ -29,6 +30,7 @@ namespace ShengenQiHaoLiuAssgt
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
+            isVsCPU = false;
             player1Name = player1NameTextBox.Text;
             player2Name = player2NameTextBox.Text;
             goalScore = Convert.ToInt32(goalScoreTextBox.Text);
@@ -39,9 +41,14 @@ namespace ShengenQiHaoLiuAssgt
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //this.Hide();
-            //MainGameForm mainGameForm = new MainGameForm();
-            //mainGameForm.Show();
+            this.Hide();
+            isVsCPU = true;
+            player1Name = player1NameTextBox.Text;
+            player2Name = "CPU";
+            goalScore = Convert.ToInt32(goalScoreTextBox.Text);
+            MainGameForm mainGameForm = new MainGameForm();
+            mainGameForm.Closed += (s, args) => this.Close();
+            mainGameForm.Show();
         }
     }
 }
