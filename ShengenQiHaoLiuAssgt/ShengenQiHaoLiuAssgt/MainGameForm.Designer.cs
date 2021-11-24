@@ -35,28 +35,31 @@ namespace ShengenQiHaoLiuAssgt
             this.player1Text = new System.Windows.Forms.Label();
             this.player2Text = new System.Windows.Forms.Label();
             this.goalScore = new System.Windows.Forms.Label();
-            this.commentText = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dicesPanel = new System.Windows.Forms.Panel();
             this.diceText = new System.Windows.Forms.Label();
-            this.dice2 = new System.Windows.Forms.PictureBox();
-            this.dice1 = new System.Windows.Forms.PictureBox();
             this.passDice1 = new System.Windows.Forms.Button();
             this.passDice2 = new System.Windows.Forms.Button();
             this.runningScoreList = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.runningScoreAggrLabel = new System.Windows.Forms.Label();
             this.player1CumulativeScoreLabel = new System.Windows.Forms.Label();
             this.player2CumulativeScoreLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.avatarPicBox2 = new System.Windows.Forms.PictureBox();
+            this.avatarPicBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dice2 = new System.Windows.Forms.PictureBox();
+            this.dice1 = new System.Windows.Forms.PictureBox();
             this.dicesPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.avatarPicBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avatarPicBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dice2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dice1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // roll1
@@ -87,7 +90,7 @@ namespace ShengenQiHaoLiuAssgt
             // player1Text
             // 
             this.player1Text.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player1Text.Location = new System.Drawing.Point(75, 75);
+            this.player1Text.Location = new System.Drawing.Point(83, 87);
             this.player1Text.Name = "player1Text";
             this.player1Text.Size = new System.Drawing.Size(210, 23);
             this.player1Text.TabIndex = 3;
@@ -97,7 +100,7 @@ namespace ShengenQiHaoLiuAssgt
             // player2Text
             // 
             this.player2Text.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.player2Text.Location = new System.Drawing.Point(733, 75);
+            this.player2Text.Location = new System.Drawing.Point(736, 87);
             this.player2Text.Name = "player2Text";
             this.player2Text.Size = new System.Drawing.Size(210, 23);
             this.player2Text.TabIndex = 4;
@@ -108,23 +111,12 @@ namespace ShengenQiHaoLiuAssgt
             // 
             this.goalScore.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.goalScore.AutoSize = true;
-            this.goalScore.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.goalScore.Location = new System.Drawing.Point(405, 614);
+            this.goalScore.Font = new System.Drawing.Font("Verdana", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.goalScore.Location = new System.Drawing.Point(382, 643);
             this.goalScore.Name = "goalScore";
-            this.goalScore.Size = new System.Drawing.Size(216, 32);
+            this.goalScore.Size = new System.Drawing.Size(256, 38);
             this.goalScore.TabIndex = 5;
             this.goalScore.Text = "Goal Score: 0";
-            // 
-            // commentText
-            // 
-            this.commentText.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.commentText.AutoSize = true;
-            this.commentText.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.commentText.Location = new System.Drawing.Point(418, 666);
-            this.commentText.Name = "commentText";
-            this.commentText.Size = new System.Drawing.Size(193, 18);
-            this.commentText.TabIndex = 6;
-            this.commentText.Text = "Player 1 Started Game";
             // 
             // label1
             // 
@@ -175,28 +167,6 @@ namespace ShengenQiHaoLiuAssgt
             this.diceText.Text = "Waiting for action..";
             this.diceText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // dice2
-            // 
-            this.dice2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.dice2.Image = global::ShengenQiHaoLiuAssgt.Properties.Resources.Dice1;
-            this.dice2.Location = new System.Drawing.Point(105, 50);
-            this.dice2.Name = "dice2";
-            this.dice2.Size = new System.Drawing.Size(60, 60);
-            this.dice2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.dice2.TabIndex = 14;
-            this.dice2.TabStop = false;
-            // 
-            // dice1
-            // 
-            this.dice1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.dice1.Image = global::ShengenQiHaoLiuAssgt.Properties.Resources.Dice1;
-            this.dice1.Location = new System.Drawing.Point(35, 50);
-            this.dice1.Name = "dice1";
-            this.dice1.Size = new System.Drawing.Size(60, 60);
-            this.dice1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.dice1.TabIndex = 13;
-            this.dice1.TabStop = false;
-            // 
             // passDice1
             // 
             this.passDice1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -229,16 +199,6 @@ namespace ShengenQiHaoLiuAssgt
             this.runningScoreList.Size = new System.Drawing.Size(302, 128);
             this.runningScoreList.TabIndex = 17;
             this.runningScoreList.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::ShengenQiHaoLiuAssgt.Properties.Resources.diceIcon;
-            this.pictureBox1.Location = new System.Drawing.Point(452, 29);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(130, 130);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 18;
-            this.pictureBox1.TabStop = false;
             // 
             // label5
             // 
@@ -298,11 +258,67 @@ namespace ShengenQiHaoLiuAssgt
             this.label3.TabIndex = 27;
             this.label3.Text = "Cumulative Score";
             // 
+            // avatarPicBox2
+            // 
+            this.avatarPicBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.avatarPicBox2.Image = global::ShengenQiHaoLiuAssgt.Properties.Resources.a8;
+            this.avatarPicBox2.Location = new System.Drawing.Point(792, 113);
+            this.avatarPicBox2.Name = "avatarPicBox2";
+            this.avatarPicBox2.Size = new System.Drawing.Size(100, 100);
+            this.avatarPicBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.avatarPicBox2.TabIndex = 29;
+            this.avatarPicBox2.TabStop = false;
+            // 
+            // avatarPicBox1
+            // 
+            this.avatarPicBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.avatarPicBox1.Image = global::ShengenQiHaoLiuAssgt.Properties.Resources.a8;
+            this.avatarPicBox1.Location = new System.Drawing.Point(136, 113);
+            this.avatarPicBox1.Name = "avatarPicBox1";
+            this.avatarPicBox1.Size = new System.Drawing.Size(100, 100);
+            this.avatarPicBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.avatarPicBox1.TabIndex = 28;
+            this.avatarPicBox1.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ShengenQiHaoLiuAssgt.Properties.Resources.diceIcon;
+            this.pictureBox1.Location = new System.Drawing.Point(452, 29);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(130, 130);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 18;
+            this.pictureBox1.TabStop = false;
+            // 
+            // dice2
+            // 
+            this.dice2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.dice2.Image = global::ShengenQiHaoLiuAssgt.Properties.Resources.Dice1;
+            this.dice2.Location = new System.Drawing.Point(105, 50);
+            this.dice2.Name = "dice2";
+            this.dice2.Size = new System.Drawing.Size(60, 60);
+            this.dice2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.dice2.TabIndex = 14;
+            this.dice2.TabStop = false;
+            // 
+            // dice1
+            // 
+            this.dice1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.dice1.Image = global::ShengenQiHaoLiuAssgt.Properties.Resources.Dice1;
+            this.dice1.Location = new System.Drawing.Point(35, 50);
+            this.dice1.Name = "dice1";
+            this.dice1.Size = new System.Drawing.Size(60, 60);
+            this.dice1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.dice1.TabIndex = 13;
+            this.dice1.TabStop = false;
+            // 
             // MainGameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.avatarPicBox2);
+            this.Controls.Add(this.avatarPicBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.player2CumulativeScoreLabel);
             this.Controls.Add(this.player1CumulativeScoreLabel);
@@ -317,7 +333,6 @@ namespace ShengenQiHaoLiuAssgt
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.commentText);
             this.Controls.Add(this.goalScore);
             this.Controls.Add(this.player2Text);
             this.Controls.Add(this.player1Text);
@@ -328,9 +343,11 @@ namespace ShengenQiHaoLiuAssgt
             this.Name = "MainGameForm";
             this.Text = "Groan";
             this.dicesPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.avatarPicBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avatarPicBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dice2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dice1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -343,7 +360,6 @@ namespace ShengenQiHaoLiuAssgt
         private System.Windows.Forms.Label player1Text;
         private System.Windows.Forms.Label player2Text;
         private System.Windows.Forms.Label goalScore;
-        private System.Windows.Forms.Label commentText;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
@@ -361,5 +377,7 @@ namespace ShengenQiHaoLiuAssgt
         private System.Windows.Forms.Label player1CumulativeScoreLabel;
         private System.Windows.Forms.Label player2CumulativeScoreLabel;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox avatarPicBox1;
+        private System.Windows.Forms.PictureBox avatarPicBox2;
     }
 }

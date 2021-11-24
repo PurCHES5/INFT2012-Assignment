@@ -16,7 +16,7 @@ namespace ShengenQiHaoLiuAssgt
         private static int player2Wins = 0;
 
         private int player1CrownLeft = 140;
-        private int player2CrownLeft = 480;
+        private int player2CrownLeft = 485;
 
         public EndGameResultForm()
         {
@@ -25,6 +25,9 @@ namespace ShengenQiHaoLiuAssgt
             player2Name.Text = MenuForm.player2Name;
             player1Win.Text = player1Wins.ToString();
             player2Win.Text = player2Wins.ToString();
+
+            avatarPicBox1.Image = MenuForm.avatarImages[MenuForm.avatar1];
+            avatarPicBox2.Image = MenuForm.avatarImages[MenuForm.avatar2];
 
             if (player1Wins == player2Wins)
             {
@@ -56,6 +59,8 @@ namespace ShengenQiHaoLiuAssgt
         {
             player1Wins = 0;
             player2Wins = 0;
+            MenuForm.avatar2 = 5;
+            MenuForm.avatar1 = 0;
         }
 
         private void newRoundButton_Click(object sender, EventArgs e)

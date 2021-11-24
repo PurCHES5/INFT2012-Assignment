@@ -157,5 +157,44 @@
   <ItemGroup>
     <None Include="Resources\cartoon crown.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\a1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\a2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\a3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\a4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\a5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\a6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\a7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\a8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\a9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\a10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cpu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\right.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

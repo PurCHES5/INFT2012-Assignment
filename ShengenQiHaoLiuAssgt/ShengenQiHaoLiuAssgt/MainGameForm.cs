@@ -30,6 +30,10 @@ namespace ShengenQiHaoLiuAssgt
             InitializeComponent();
 
             isVsCPU = MenuForm.isVsCPU;
+
+            avatarPicBox1.Image = MenuForm.avatarImages[MenuForm.avatar1];
+            avatarPicBox2.Image = MenuForm.avatarImages[MenuForm.avatar2];
+
             player1Text.Text = MenuForm.player1Name;
             player2Text.Text = MenuForm.player2Name;
             goalScore.Text = "Goal Score: " + MenuForm.goalScore;
