@@ -40,6 +40,8 @@ namespace ShengenQiHaoLiuAssgt
             this.label4 = new System.Windows.Forms.Label();
             this.dicesPanel = new System.Windows.Forms.Panel();
             this.diceText = new System.Windows.Forms.Label();
+            this.dice2 = new System.Windows.Forms.PictureBox();
+            this.dice1 = new System.Windows.Forms.PictureBox();
             this.passDice1 = new System.Windows.Forms.Button();
             this.passDice2 = new System.Windows.Forms.Button();
             this.runningScoreList = new System.Windows.Forms.Label();
@@ -52,14 +54,13 @@ namespace ShengenQiHaoLiuAssgt
             this.avatarPicBox2 = new System.Windows.Forms.PictureBox();
             this.avatarPicBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dice2 = new System.Windows.Forms.PictureBox();
-            this.dice1 = new System.Windows.Forms.PictureBox();
+            this.aiStrategyText = new System.Windows.Forms.Label();
             this.dicesPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dice2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dice1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.avatarPicBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.avatarPicBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dice2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dice1)).BeginInit();
             this.SuspendLayout();
             // 
             // roll1
@@ -166,6 +167,28 @@ namespace ShengenQiHaoLiuAssgt
             this.diceText.TabIndex = 17;
             this.diceText.Text = "Waiting for action..";
             this.diceText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // dice2
+            // 
+            this.dice2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.dice2.Image = global::ShengenQiHaoLiuAssgt.Properties.Resources.Dice1;
+            this.dice2.Location = new System.Drawing.Point(105, 50);
+            this.dice2.Name = "dice2";
+            this.dice2.Size = new System.Drawing.Size(60, 60);
+            this.dice2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.dice2.TabIndex = 14;
+            this.dice2.TabStop = false;
+            // 
+            // dice1
+            // 
+            this.dice1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.dice1.Image = global::ShengenQiHaoLiuAssgt.Properties.Resources.Dice1;
+            this.dice1.Location = new System.Drawing.Point(35, 50);
+            this.dice1.Name = "dice1";
+            this.dice1.Size = new System.Drawing.Size(60, 60);
+            this.dice1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.dice1.TabIndex = 13;
+            this.dice1.TabStop = false;
             // 
             // passDice1
             // 
@@ -290,33 +313,24 @@ namespace ShengenQiHaoLiuAssgt
             this.pictureBox1.TabIndex = 18;
             this.pictureBox1.TabStop = false;
             // 
-            // dice2
+            // aiStrategyText
             // 
-            this.dice2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.dice2.Image = global::ShengenQiHaoLiuAssgt.Properties.Resources.Dice1;
-            this.dice2.Location = new System.Drawing.Point(105, 50);
-            this.dice2.Name = "dice2";
-            this.dice2.Size = new System.Drawing.Size(60, 60);
-            this.dice2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.dice2.TabIndex = 14;
-            this.dice2.TabStop = false;
-            // 
-            // dice1
-            // 
-            this.dice1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.dice1.Image = global::ShengenQiHaoLiuAssgt.Properties.Resources.Dice1;
-            this.dice1.Location = new System.Drawing.Point(35, 50);
-            this.dice1.Name = "dice1";
-            this.dice1.Size = new System.Drawing.Size(60, 60);
-            this.dice1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.dice1.TabIndex = 13;
-            this.dice1.TabStop = false;
+            this.aiStrategyText.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aiStrategyText.Location = new System.Drawing.Point(751, 216);
+            this.aiStrategyText.Name = "aiStrategyText";
+            this.aiStrategyText.Size = new System.Drawing.Size(215, 132);
+            this.aiStrategyText.TabIndex = 30;
+            this.aiStrategyText.Text = "AI\'s Strategy:\r\nThrowing the dice until:\r\nThe running score is >=15\r\nAND\r\nThe gap" +
+    " between \r\nAI\'s Cumulative + Running score\r\nand Player\'s score is <= 10\r\n(Assumi" +
+    "ng not getting Groan or Snake\'s eyes)";
+            this.aiStrategyText.Visible = false;
             // 
             // MainGameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.aiStrategyText);
             this.Controls.Add(this.avatarPicBox2);
             this.Controls.Add(this.avatarPicBox1);
             this.Controls.Add(this.label3);
@@ -343,11 +357,11 @@ namespace ShengenQiHaoLiuAssgt
             this.Name = "MainGameForm";
             this.Text = "Groan";
             this.dicesPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dice2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dice1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.avatarPicBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.avatarPicBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dice2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dice1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -379,5 +393,6 @@ namespace ShengenQiHaoLiuAssgt
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox avatarPicBox1;
         private System.Windows.Forms.PictureBox avatarPicBox2;
+        private System.Windows.Forms.Label aiStrategyText;
     }
 }

@@ -33,6 +33,8 @@ namespace ShengenQiHaoLiuAssgt
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.avatar2Right = new System.Windows.Forms.PictureBox();
+            this.avatar2Left = new System.Windows.Forms.PictureBox();
             this.avatar1Left = new System.Windows.Forms.PictureBox();
             this.avatar1Right = new System.Windows.Forms.PictureBox();
             this.avatarPicBox2 = new System.Windows.Forms.PictureBox();
@@ -41,21 +43,19 @@ namespace ShengenQiHaoLiuAssgt
             this.goalScoreTextBox = new System.Windows.Forms.TextBox();
             this.player2NameTextBox = new System.Windows.Forms.TextBox();
             this.player1NameTextBox = new System.Windows.Forms.TextBox();
-            this.avatar2Left = new System.Windows.Forms.PictureBox();
-            this.avatar2Right = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.avatar2Right)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avatar2Left)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.avatar1Left)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.avatar1Right)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.avatarPicBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.avatarPicBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.avatar2Left)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.avatar2Right)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(436, 205);
+            this.button1.Location = new System.Drawing.Point(434, 214);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(233, 130);
             this.button1.TabIndex = 0;
@@ -67,7 +67,7 @@ namespace ShengenQiHaoLiuAssgt
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(51, 205);
+            this.button2.Location = new System.Drawing.Point(58, 214);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(233, 130);
             this.button2.TabIndex = 1;
@@ -97,6 +97,32 @@ namespace ShengenQiHaoLiuAssgt
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(713, 397);
             this.panel1.TabIndex = 0;
+            // 
+            // avatar2Right
+            // 
+            this.avatar2Right.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.avatar2Right.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.avatar2Right.Image = global::ShengenQiHaoLiuAssgt.Properties.Resources.right;
+            this.avatar2Right.Location = new System.Drawing.Point(606, 54);
+            this.avatar2Right.Name = "avatar2Right";
+            this.avatar2Right.Size = new System.Drawing.Size(50, 50);
+            this.avatar2Right.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.avatar2Right.TabIndex = 11;
+            this.avatar2Right.TabStop = false;
+            this.avatar2Right.Click += new System.EventHandler(this.avatar2Right_Click);
+            // 
+            // avatar2Left
+            // 
+            this.avatar2Left.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.avatar2Left.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.avatar2Left.Image = global::ShengenQiHaoLiuAssgt.Properties.Resources.left;
+            this.avatar2Left.Location = new System.Drawing.Point(444, 54);
+            this.avatar2Left.Name = "avatar2Left";
+            this.avatar2Left.Size = new System.Drawing.Size(50, 50);
+            this.avatar2Left.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.avatar2Left.TabIndex = 10;
+            this.avatar2Left.TabStop = false;
+            this.avatar2Left.Click += new System.EventHandler(this.avatar2Left_Click);
             // 
             // avatar1Left
             // 
@@ -186,32 +212,6 @@ namespace ShengenQiHaoLiuAssgt
             this.player1NameTextBox.TabIndex = 2;
             this.player1NameTextBox.Text = "Player1";
             // 
-            // avatar2Left
-            // 
-            this.avatar2Left.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.avatar2Left.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.avatar2Left.Image = global::ShengenQiHaoLiuAssgt.Properties.Resources.left;
-            this.avatar2Left.Location = new System.Drawing.Point(444, 54);
-            this.avatar2Left.Name = "avatar2Left";
-            this.avatar2Left.Size = new System.Drawing.Size(50, 50);
-            this.avatar2Left.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.avatar2Left.TabIndex = 10;
-            this.avatar2Left.TabStop = false;
-            this.avatar2Left.Click += new System.EventHandler(this.avatar2Left_Click);
-            // 
-            // avatar2Right
-            // 
-            this.avatar2Right.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.avatar2Right.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.avatar2Right.Image = global::ShengenQiHaoLiuAssgt.Properties.Resources.right;
-            this.avatar2Right.Location = new System.Drawing.Point(606, 54);
-            this.avatar2Right.Name = "avatar2Right";
-            this.avatar2Right.Size = new System.Drawing.Size(50, 50);
-            this.avatar2Right.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.avatar2Right.TabIndex = 11;
-            this.avatar2Right.TabStop = false;
-            this.avatar2Right.Click += new System.EventHandler(this.avatar2Right_Click);
-            // 
             // MenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -224,12 +224,12 @@ namespace ShengenQiHaoLiuAssgt
             this.Text = "Groan Main Menu";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.avatar2Right)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avatar2Left)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.avatar1Left)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.avatar1Right)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.avatarPicBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.avatarPicBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.avatar2Left)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.avatar2Right)).EndInit();
             this.ResumeLayout(false);
 
         }

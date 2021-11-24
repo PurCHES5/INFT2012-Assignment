@@ -1,24 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ShengenQiHaoLiuAssgt
 {
     public partial class MenuForm : Form
     {
+        // Each player's name and decided goal score
         public static string player1Name;
         public static string player2Name;
         public static int goalScore;
+        // true if player chooses Singleplayer, otherwise stays default(false).
         public static bool isVsCPU = false;
 
+        // Storing all avatar images.
         public static Image[] avatarImages = new Image[11];
 
+        // Current avatar index
         public static int avatar1 = 0;
         public static int avatar2 = 5;
 
@@ -26,6 +24,7 @@ namespace ShengenQiHaoLiuAssgt
         {
             InitializeComponent();
 
+            // Getting all images from resource and save to static attributes.
             avatarImages[0] = Properties.Resources.a1;
             avatarImages[1] = Properties.Resources.a2;
             avatarImages[2] = Properties.Resources.a3;
@@ -44,18 +43,19 @@ namespace ShengenQiHaoLiuAssgt
 
         private void button1_Click(object sender, EventArgs e)
         {
+            // catch exceptions if the player enters an invalid input into the goal score.
             try
             {
                 goalScore = Convert.ToInt32(goalScoreTextBox.Text);
             }
             catch
             {
-                MessageBox.Show("Only use positive numbers for goal score!");
+                MessageBox.Show(InGameText.goalScoreInputWarning);
                 return;
             }
-            if (goalScore < 1)
+            if (goalScore < 50 || goalScore > 100)
             {
-                MessageBox.Show("Only use positive numbers for goal score!");
+                MessageBox.Show(InGameText.goalScoreInputWarning);
                 return;
             }
 
@@ -63,26 +63,41 @@ namespace ShengenQiHaoLiuAssgt
             isVsCPU = false;
             player1Name = player1NameTextBox.Text;
             player2Name = player2NameTextBox.Text;
-            
+
+            //==========================================
+            // Reference A1: externally sourced code
+            // Purpose: Close the current form then instantiate and show another form.
+            // Date: 16/11/2021
+            // Source: stackoverflow
+            // Author: nihique
+            // url: https://stackoverflow.com/questions/5548746/c-sharp-open-a-new-form-then-close-the-current-form
+            // Adaptation required: change the Form class name and also considered changing var to Form since
+            // I think here better not to use var.
+            // Note: The simillar codes also reappered multiple times in other classes
+            //==========================================
             MainGameForm mainGameForm = new MainGameForm();
             mainGameForm.Closed += (s, args) => this.Close();
             mainGameForm.Show();
+            //==========================================
+            // End reference A1
+            //==========================================
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            // catch exceptions if the player enters an invalid input into the goal score.
             try
             {
                 goalScore = Convert.ToInt32(goalScoreTextBox.Text);
             }
             catch
             {
-                MessageBox.Show("Only use positive numbers for goal score!");
+                MessageBox.Show(InGameText.goalScoreInputWarning);
                 return;
             }
-            if (goalScore < 1)
+            if (goalScore < 50 || goalScore > 100)
             {
-                MessageBox.Show("Only use positive numbers for goal score!");
+                MessageBox.Show(InGameText.goalScoreInputWarning);
                 return;
             }
 
@@ -90,7 +105,7 @@ namespace ShengenQiHaoLiuAssgt
             isVsCPU = true;
             avatar2 = 10;
             player1Name = player1NameTextBox.Text;
-            player2Name = "CPU";
+            player2Name = "AI";
             MainGameForm mainGameForm = new MainGameForm();
             mainGameForm.Closed += (s, args) => this.Close();
             mainGameForm.Show();
@@ -98,6 +113,7 @@ namespace ShengenQiHaoLiuAssgt
 
         private void avatar1Left_Click(object sender, EventArgs e)
         {
+            // Loop within the avatar array.
             avatar1 = avatar1 == 0 ? 9 : avatar1 - 1;
             avatarPicBox1.Image = avatarImages[avatar1];
         }
@@ -121,5 +137,3 @@ namespace ShengenQiHaoLiuAssgt
         }
     }
 }
-
-//https://stackoverflow.com/questions/5548746/c-sharp-open-a-new-form-then-close-the-current-form

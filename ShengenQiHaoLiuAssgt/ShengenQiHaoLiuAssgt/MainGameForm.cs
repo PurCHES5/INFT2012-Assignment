@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 // External Package dot-net-transitions
@@ -14,15 +9,20 @@ namespace ShengenQiHaoLiuAssgt
 {
     public partial class MainGameForm : Form
     {
+        // Storing all dice images
         private Image[] diceImages = new Image[6];
 
+        // Current round running score aggregation.
         private int runningScoreAggr = 0;
 
+        // Cumulative scores for each player
         private int player1CumulativeScore = 0;
         private int player2CumulativeScore = 0;
 
+        // Is the left side player(player1) playing?
         private bool isLeftSide = true;
 
+        // Is current game mode Singleplayer?
         private bool isVsCPU = false;
 
         public MainGameForm()
@@ -31,6 +31,7 @@ namespace ShengenQiHaoLiuAssgt
 
             isVsCPU = MenuForm.isVsCPU;
 
+            // Getting all images from resource and save to static attributes.
             avatarPicBox1.Image = MenuForm.avatarImages[MenuForm.avatar1];
             avatarPicBox2.Image = MenuForm.avatarImages[MenuForm.avatar2];
 
@@ -49,9 +50,11 @@ namespace ShengenQiHaoLiuAssgt
             passDice1.Enabled = false;
             passDice2.Enabled = false;
 
+            // Randomly decide which player starts the game
             Random random = new Random();
             isLeftSide = random.Next(0, 2) == 0;
 
+            // If player2 plays first, move the default dice position to player2
             if (!isLeftSide)
             {
                 dicesPanel.Left = 550;
@@ -59,12 +62,23 @@ namespace ShengenQiHaoLiuAssgt
 
             EnableButtons();
 
+            // If the gamemode is Singleplayer, remove the buttons and shows the AI's strategy
             if (isVsCPU && !isLeftSide)
             {
                 roll2_Click(null, null);
             }
+
+            if (isVsCPU)
+            {
+                aiStrategyText.Visible = true;
+                roll2.Visible = false;
+                passDice2.Visible = false;
+            }
         }
 
+        /// <summary>
+        /// Passing the dices to the opposite player
+        /// </summary>
         private async void RollMove()
         {
             dice1.Image = diceImages[0];
@@ -79,6 +93,11 @@ namespace ShengenQiHaoLiuAssgt
             diceText.Text = InGameText.diceWaiting;
         }
 
+        /// <summary>
+        /// Rolling the dices
+        /// </summary>
+        /// <returns>int array including two integers(start from 0, range0-5), 
+        /// each represents the result of the dice</returns>
         private async Task<int[]> RollDice()
         {
             diceText.Text = InGameText.diceRolling;
@@ -89,6 +108,7 @@ namespace ShengenQiHaoLiuAssgt
 
             Random random = new Random();
 
+            // Shows dice thowing animation (randomized).
             for (int i = 0; i < 10; i++)
             {
                 await Task.Delay(100);
@@ -96,6 +116,7 @@ namespace ShengenQiHaoLiuAssgt
                 dice2.Image = diceImages[random.Next(0, 6)];
             }
 
+            // Get the final result of each dices.
             int dice1FinalResult = random.Next(0, 6);
             int dice2FinalResult = random.Next(0, 6);
             int[] finalResults = { dice1FinalResult, dice2FinalResult };
@@ -103,6 +124,8 @@ namespace ShengenQiHaoLiuAssgt
             dice1.Image = diceImages[dice1FinalResult];
             dice2.Image = diceImages[dice2FinalResult];
 
+            // Each dicexFinalResult need to add 1 when for actual calculation. Since the value is ranged (0-5)
+            // and is only used for array calculation (as array starts from 0)
             int diceResultsAggr = dice1FinalResult + dice2FinalResult + 2;
             string diceResultAggrText;
             if (diceResultsAggr == 2)
@@ -152,7 +175,8 @@ namespace ShengenQiHaoLiuAssgt
                 diceResultAggrText = diceResultsAggr.ToString();
             }
             runningScoreList.Text = 
-                runningScoreList.Text.Insert(0, $"{diceResults[0] + 1} + {diceResults[1] + 1} = {diceResultAggrText}\r\n\r\n");
+                runningScoreList.Text.Insert(
+                    0, $"{diceResults[0] + 1} + {diceResults[1] + 1} = {diceResultAggrText}\r\n\r\n");
 
             runningScoreAggr += diceResultsAggr;
             runningScoreAggrLabel.Text = runningScoreAggr.ToString();
@@ -165,13 +189,14 @@ namespace ShengenQiHaoLiuAssgt
         /// <returns>Returns true if Groan or Snake eye, otherwise false.</returns>
         private async Task<bool> GroanOrSnake(int[] diceResults, int player)
         {
-            if (diceResults[0] == 0 && diceResults[1] == 0)
+            if (diceResults[0] == 0 && diceResults[1] == 0) // Snake's eyes
             {
                 roll1.Enabled = false;
                 roll2.Enabled = false;
                 passDice1.Enabled = false;
                 passDice2.Enabled = false;
 
+                // Set both running score and cumulative score to 0.
                 runningScoreAggr = 0;
                 runningScoreAggrLabel.Text = "0";
                 if (player == 1)
@@ -185,6 +210,7 @@ namespace ShengenQiHaoLiuAssgt
                     player2CumulativeScoreLabel.Text = "0";
                 }
 
+                // wait 2 seconds then automatically pass the dices to the next player
                 await Task.Delay(2000);
                 if (player == 1)
                 {
@@ -197,13 +223,14 @@ namespace ShengenQiHaoLiuAssgt
                 
                 return true;
             }
-            else if (diceResults[0] == 0 || diceResults[1] == 0)
+            else if (diceResults[0] == 0 || diceResults[1] == 0)    // Groan
             {
                 roll1.Enabled = false;
                 roll2.Enabled = false;
                 passDice1.Enabled = false;
                 passDice2.Enabled = false;
 
+                // Set running score to 0 and automatically pass the dices
                 runningScoreAggr = 0;
                 runningScoreAggrLabel.Text = "0";
                 await Task.Delay(2000);
@@ -221,6 +248,11 @@ namespace ShengenQiHaoLiuAssgt
             return false;
         }
 
+        /// <summary>
+        /// Test if the the player wins (Running score + Cumulative score >= Goal score ?)
+        /// </summary>
+        /// <param name="player">0 is player1, 1 is player 2</param>
+        /// <returns>true if the player wins, otherwise false</returns>
         private bool IsWin(int player)
         {
             if ((player == 1 ? player1CumulativeScore : player2CumulativeScore) + runningScoreAggr >= MenuForm.goalScore)
@@ -237,6 +269,9 @@ namespace ShengenQiHaoLiuAssgt
             return false;
         }
 
+        /// <summary>
+        /// Enable buttons after disabling it during animation or other actions
+        /// </summary>
         private void EnableButtons()
         {
             if (isLeftSide)
@@ -259,6 +294,10 @@ namespace ShengenQiHaoLiuAssgt
             }
         }
 
+        /// <summary>
+        /// Decide next move for AI, whether should throw the dices or pass it
+        /// </summary>
+        /// <returns>true if next move is throw dices, false if next move is pass the dices</returns>
         private bool DecideNextMove()
         {
             if (runningScoreAggr < 15 || player1CumulativeScore - (player2CumulativeScore + runningScoreAggr) > 10)
@@ -295,6 +334,7 @@ namespace ShengenQiHaoLiuAssgt
             bool isGroanOrSnake = await GroanOrSnake(diceResults, 2);
             bool isWin = IsWin(2);
 
+            // Decide next move for the AI if not winning or getting a Groan or Snake's eyes
             if (isVsCPU && !isGroanOrSnake && !isWin)
             {
                 await Task.Delay(1000);
@@ -350,5 +390,15 @@ namespace ShengenQiHaoLiuAssgt
     }
 }
 
-
-//<div>Icons made by <a href="https://www.flaticon.com/authors/dimi-kazak" title="Dimi Kazak">Dimi Kazak</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+//==========================================
+// Reference B1: externally sourced asset (Image)
+// Purpose: Use as the icon of the program
+// Date: 18/11/2021
+// Source: flaticon
+// Author: Dimi Kazak
+// url: https://www.flaticon.com/authors/dimi-kazak
+// Adaptation required: Zooming the image
+// Note: The same image is used in all the other forms as form icon
+//==========================================
+// End of Reference B1
+//==========================================
